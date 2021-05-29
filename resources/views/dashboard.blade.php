@@ -14,8 +14,10 @@
        
     </head>
     <body class="antialiased">
-        <form method="post" action="{{route('dashboard.statics.search')}}" id="filterform">
+        <form method="get" action="{{route('dashboard.statics.search')}}" id="filterform">
             <label>Search with Dates : </label><input type="text" name="daterange" value="01/01/2015 - 01/31/2015" />
+            <input type="submit" name="submit">
+            <input type="hidden" value="{{ csrf_token() }}">
 
             <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>

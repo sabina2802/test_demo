@@ -19,4 +19,4 @@ Route::get('/', function () {
 
 Route::get('/dashboard', 'HomeController@index')->name('dashboard.statics');
 
-Route::post('/dashboard/filter', 'HomeController@SearchData')->name('dashboard.statics.search');
+Route::get('/dashboard/filter', 'HomeController@SearchData')->name('dashboard.statics.search');

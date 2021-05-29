@@ -15,10 +15,10 @@ class CreateWebsiteTable extends Migration
     {
         Schema::create('website', function (Blueprint $table) {
             $table->id();
-            $table->string('websiteId');
-            $table->string('date');
-            $table->string('chats');
-            $table->string('missedChats');
+            $table->string('websiteId')->nullable();
+            $table->string('date')->nullable();
+            $table->string('chats')->nullable();;
+            $table->string('missedChats')->nullable();
             $table->timestamps();
         });
     }

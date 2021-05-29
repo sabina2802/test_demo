@@ -31,4 +31,8 @@ class Website extends Model
     {
     	return static::get();
     }  
+
+     public function Searchdata($sd,$ed){
+        return static::whereBetween('date', [$sd,$ed])->get();
+     }
 }

@@ -44,7 +44,7 @@ class HomeController extends Controller
 			foreach ($object as $key => $value) {
 			
 				$data_object = $value; 
-				$insert_data = $this->Website->createData($data_object);
+				$insert_data = website::create($data_object);
 			}
 
 		}	
@@ -57,6 +57,20 @@ class HomeController extends Controller
 
     public function SearchData(Request $request){
     	$input = $request->all();
-    	dd($input);
+    	
+
+    	$dates = explode("-",$input['daterange']);
+
+    	$start_date = $dates[0];
+    	$end_date   =  $dates[1];
+
+    	$sd = date('Y-m-d H:i:s.000Z', strtotime($start_date));
+    	$ed = date('Y-m-d H:i:s.000Z', strtotime($end_date));
+
+    	
+
+    	$static = $this->Website->Searchdata($sd,$ed); 
+    	return view('dashboard',compact('static'));
+
     }
 }
